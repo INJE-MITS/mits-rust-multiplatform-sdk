@@ -6,6 +6,12 @@
 
 > 현재 공개된 코어 메소드는 파이프라인을 검증하기 위한 자리표시자(문자열·정수 뒤집기)입니다. 실제 신호처리 메소드는 관련 연구의 공개 시점에 맞춰 교체됩니다.
 
+## Flow
+
+![Rust로 작성 → 빌드 스크립트로 SDK 생성 → Android 프로젝트의 정해진 위치에 jniLibs·uniffi 바인딩 배치 → Kotlin에서 객체처럼 호출](docs/flow.png)
+
+Rust로 메소드를 작성하고(uniffi·ndk 의존성), 빌드 스크립트가 Kotlin·Swift·Python 등의 SDK를 생성해 앱 프로젝트의 정해진 위치(`jniLibs/`, `java/uniffi/`)에 놓으면, 앱에서는 `uniffi.mits_ndk_lib.reverseInteger(123)`처럼 일반 객체 호출로 씁니다.
+
 ## 구조
 
 ```
